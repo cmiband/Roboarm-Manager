@@ -1,12 +1,25 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { AfterViewInit } from '@angular/core';
+import { Home } from './home/home';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [Home],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
-  protected readonly title = signal('main-app');
+export class App implements AfterViewInit {
+  agent = signal("");
+
+  ngAfterViewInit(): void {
+    console.log(navigator.userAgent);
+
+    this.agent.set(navigator.userAgent);
+
+  }
+
+  connectToBluetoothService() {
+
+  }
 }
+
