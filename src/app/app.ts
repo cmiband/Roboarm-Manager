@@ -12,8 +12,6 @@ export class App implements AfterViewInit {
   agent = signal("");
 
   ngAfterViewInit(): void {
-    console.log(navigator.userAgent);
-
     this.agent.set(navigator.userAgent);
 
   }

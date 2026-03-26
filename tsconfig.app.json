@@ -8,7 +8,7 @@
   },
   "include": [
     "src/**/*.ts"
-  ],
+, "src/preload.js"  ],
   "exclude": [
     "src/**/*.spec.ts"
   ]

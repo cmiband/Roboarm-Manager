@@ -1,0 +1,1 @@
+export const LOCALHOST_SERVER_ADDRESS = 'localhost:3000'

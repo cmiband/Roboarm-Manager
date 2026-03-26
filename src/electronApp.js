@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow } = require('electron');
 
 require('dotenv').configDotenv();
 console.log(process.env['DEVICE_NAME']);
@@ -10,7 +10,6 @@ const createWindow = () => {
   });
 
   win.loadFile('dist/main-app/browser/index.html');
-  
 }
 
 app.whenReady().then(() => {
