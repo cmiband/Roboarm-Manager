@@ -1,0 +1,14 @@
+.view-container {
+    margin: 15vh auto auto auto;
+    width: 80vh;
+}
+
+.input-container {
+    margin-top: 3vh;
+    width: fit-content;
+}
+
+.connect-button {
+    margin-top: 3vh;
+    width: 20vw;
+}

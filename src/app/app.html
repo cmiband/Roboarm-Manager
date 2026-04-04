@@ -1,2 +1,5 @@
-<app-home></app-home>
-{{agent()}}
+@if(connectedToBluetoothService()) {
+
+} @else {
+    <app-connection-creator></app-connection-creator>
+}

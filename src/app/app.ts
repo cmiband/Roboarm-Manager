@@ -1,20 +1,14 @@
-import { Component, signal } from '@angular/core';
-import { AfterViewInit } from '@angular/core';
-import { Home } from './home/home';
+import { Component, signal } from '@angular/core'
+import { ConnectionCreator } from './connection-creator/connection-creator';
 
 @Component({
   selector: 'app-root',
-  imports: [Home],
+  imports: [ConnectionCreator],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App implements AfterViewInit {
-  agent = signal("");
-
-  ngAfterViewInit(): void {
-    this.agent.set(navigator.userAgent);
-
-  }
+export class App {
+  connectedToBluetoothService = signal(false);
 
   connectToBluetoothService() {
 

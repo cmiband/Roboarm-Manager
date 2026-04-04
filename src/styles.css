@@ -1,3 +1,37 @@
 body {
+    background-color: #f1f7da;
     font-family: sans-serif;
+}
+
+.input-label {
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.text-input {
+    line-height: 2rem;
+    padding: 0.2rem;
+    border-radius: 5px;
+    min-width: 40vw;
+}
+
+.required-asterisk {
+    color: red;
+}
+
+.validation-text {
+    color: red;
+}
+
+.button-brand {
+    padding: 0.5rem;
+    line-height: 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #ffc3ba;
+    cursor: pointer;
+
+    border: none;
+    border-radius: 5px;
 }
