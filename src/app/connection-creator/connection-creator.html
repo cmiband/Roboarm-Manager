@@ -1,11 +1,7 @@
 <div class="view-container">
     <h1>Connect to local bluetooth service</h1>
     <div class="input-container">
-        <label class="input-label" for="server"><abbr class="required-asterisk">*</abbr>Local server address: </label>
-        <input class="text-input" id="server" type="text" [(ngModel)]="serverAddress" required/>
-        @if(showValidationError()) {
-            <span class="validation-text"></span>
-        }
+        <label class="input-label" for="config-file"><abbr class="required-asterisk">*</abbr>Configuration file: </label>
+        <input id="config-file" class="config-upload-button" type="file" accept=".txt">
     </div>
-    <button class="button-brand connect-button" (click)="handleConnect()">Connect</button>
 </div>

@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { BluetoothApiService } from '../bluetoothApi.service';
 
 @Component({
   selector: 'app-connection-creator',
@@ -11,13 +12,5 @@ export class ConnectionCreator {
   serverAddress = "";
   showValidationError = signal(false);
 
-  handleConnect() {
-    if(!this.serverAddress) {
-      this.showValidationError.set(true);
-      return;
-    }
-
-    this.showValidationError.set(false);
-
-  }
+  bluetoothService = inject(BluetoothApiService);
 }

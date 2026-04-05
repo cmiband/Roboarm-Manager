@@ -8,7 +8,18 @@
     width: fit-content;
 }
 
-.connect-button {
-    margin-top: 3vh;
-    width: 20vw;
+input[type="file"]::file-selector-button {
+    margin-top: 1vh;
+    padding: 8px 16px;
+    background: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 12px;
+    transition: background 0.2s;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: #4338ca;
 }

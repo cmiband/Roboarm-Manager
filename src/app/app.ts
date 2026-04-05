@@ -8,10 +8,12 @@ import { ConnectionCreator } from './connection-creator/connection-creator';
   styleUrl: './app.css'
 })
 export class App {
+  bluetoothServerAddress = '';
   connectedToBluetoothService = signal(false);
 
   connectToBluetoothService() {
 
   }
+
 }
 

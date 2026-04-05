@@ -20,7 +20,17 @@ body {
     color: red;
 }
 
+.help-text {
+    font-size: 0.8rem;
+    margin-top: 1vh;
+    display: block;
+    color: gray;
+}
+
 .validation-text {
+    font-size: 0.8rem;
+    margin-top: 1vh;
+    display: block;
     color: red;
 }
 
