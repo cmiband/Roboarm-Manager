@@ -13,4 +13,23 @@ export class ConnectionCreator {
   showValidationError = signal(false);
 
   bluetoothService = inject(BluetoothApiService);
+
+  handleFileChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    
+    if(input.files?.length === 1) {
+      this.deserializeConfigFile(input)
+    }
+  }
+
+  async deserializeConfigFile(fileInput: HTMLInputElement) {
+    if(!fileInput.files || !fileInput.files.length) {
+      return;
+    }
+
+    const file = fileInput.files[0];
+    const content = await file.text();
+   
+    console.log(content);
+  }
 }
