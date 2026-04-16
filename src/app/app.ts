@@ -1,28 +1,30 @@
 import { Component, signal } from '@angular/core'
 import { ConnectionCreator } from './connection-creator/connection-creator';
+import { ArmManager } from './arm-manager/arm-manager';
 import { AfterViewInit } from '@angular/core';
+import { ConfigurationObject } from './constants';
 
 @Component({
   selector: 'app-root',
-  imports: [ConnectionCreator],
+  imports: [ArmManager, ConnectionCreator],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App implements AfterViewInit{
   bluetoothServerAddress = '';
   connectedToBluetoothService = signal(false);
-
-  connectToBluetoothService() {
-
-  }
+  config = signal<ConfigurationObject | undefined>(undefined);
 
   ngAfterViewInit(): void {
-    const ws = new WebSocket("ws://localhost:8080/ws");
+  }
 
-    ws.onopen = () => {
-      console.log('connected');
-    }
+  async handleConfigChange(config: ConfigurationObject) {
+    this.config.set(config);
 
+    console.log(this.config);
+  }
+
+  connectToBluetoothService() {
     
   }
 }

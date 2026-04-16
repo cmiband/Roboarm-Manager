@@ -1,5 +1,5 @@
 @if(connectedToBluetoothService()) {
-
+    <app-arm-manager></app-arm-manager>
 } @else {
-    <app-connection-creator></app-connection-creator>
+    <app-connection-creator (configChange)="handleConfigChange($event)"></app-connection-creator>
 }
