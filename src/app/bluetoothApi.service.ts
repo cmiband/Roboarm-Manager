@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 
 const CONNECTION_TEST_ENDPOINT = '/handshake';
 
-
 @Injectable({ providedIn: 'root' })
 export class BluetoothApiService {
   async testConnection(serverAddress: string): Promise<boolean> {
