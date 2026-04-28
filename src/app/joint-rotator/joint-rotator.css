@@ -1,0 +1,12 @@
+.angles-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.component-container {
+    width: 40vw;
+}
+
+input[type="range"] {
+    width: 100%;
+}

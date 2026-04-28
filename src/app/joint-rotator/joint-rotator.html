@@ -1,5 +1,9 @@
-<div>
-    <div>
-        <input type="range" min="0" max="180" step="1">
+<div class="component-container">
+    <div>{{title()}}</div>
+    <input type="range" [min]="minRange()" [max]="maxRange()" step="1" [value]="currentValue()" (input)="handleRangeChange($event)">
+    <div class="angles-container">
+        <span>{{minRange()}}</span>
+        <span>{{maxRange()}}</span>
     </div>
+    <span>Current value: {{currentValue()}}</span>
 </div>
