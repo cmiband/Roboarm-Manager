@@ -1,14 +1,14 @@
 <div>
     <div class="joint-container">
-        <app-joint-rotator data-part="jointOne" title="Joint #1" type="joint"></app-joint-rotator>
+        <app-joint-rotator part="jointOne" title="Joint #1" type="joint" (valueChange)="handleRotatorValueChange($event)"></app-joint-rotator>
     </div>
     <div class="joint-container">
-        <app-joint-rotator data-part="jointTwo" title="Joint #2" type="joint"></app-joint-rotator>
+        <app-joint-rotator part="jointTwo" title="Joint #2" type="joint" (valueChange)="handleRotatorValueChange($event)"></app-joint-rotator>
     </div>
     <div class="joint-container">
-        <app-joint-rotator data-part="jointThree" title="Joint #3" type="joint"></app-joint-rotator>
+        <app-joint-rotator part="jointThree" title="Joint #3" type="joint" (valueChange)="handleRotatorValueChange($event)"></app-joint-rotator>
     </div>
     <div class="joint-container">
-        <app-joint-rotator data-part="gripper" title="Gripper" [minRange]="gripperMinRange" [maxRange]="gripperMaxRange" type="gripper"></app-joint-rotator>
+        <app-joint-rotator part="gripper" title="Gripper" [minRange]="gripperMinRange" [maxRange]="gripperMaxRange" type="gripper" (valueChange)="handleRotatorValueChange($event)"></app-joint-rotator>
     </div>
 </div>

@@ -48,8 +48,6 @@ export class ConnectionCreator {
 
       (configObject as any)[key] = value;
     });
-    console.log(lines);
-    console.log(configObject);
 
     return configObject;
   }

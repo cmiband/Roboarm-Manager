@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, ViewChild, signal, output, input } from '@angular/core';
+import { RotationChangeEvent } from '../constants';
 
 @Component({
   selector: 'app-joint-rotator',
@@ -8,9 +9,10 @@ import { AfterViewInit, Component, ElementRef, ViewChild, signal, output, input 
 })
 export class JointRotator implements AfterViewInit {
   currentValue = signal(90);
-  valueChange = output<number>();
+  valueChange = output<RotationChangeEvent>();
   title = input("");
   type = input("");
+  part = input("");
   minRange = input(0)
   maxRange = input(180)
 
@@ -23,6 +25,11 @@ export class JointRotator implements AfterViewInit {
 
     const newValue = parseInt(input.value);
     this.currentValue.set(newValue);
-    this.valueChange.emit(newValue);
+
+    const rotationEvent : RotationChangeEvent = {
+      value: newValue,
+      part: this.part()
+    }
+    this.valueChange.emit(rotationEvent);
   }
 }
