@@ -1,0 +1,42 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 24px;
+    border-bottom: 0.5px solid #2c2c2a;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #BA7517;
+    flex-shrink: 0;
+    transition: background 0.3s;
+}
+
+.status-dot.connected {
+    background: #3B6D11;
+}
+
+.app-title {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #5F5E5A;
+}
+
+.app-content {
+    flex: 1;
+    padding: 32px 24px;
+    max-width: 640px;
+    width: 100%;
+    margin: 0 auto;
+}

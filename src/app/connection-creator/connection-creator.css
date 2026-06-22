@@ -1,25 +1,118 @@
 .view-container {
-    margin: 15vh auto auto auto;
-    width: 80vh;
+    padding: 0;
 }
 
-.input-container {
-    margin-top: 3vh;
-    width: fit-content;
+.view-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #e8e6df;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
 }
 
-input[type="file"]::file-selector-button {
-    margin-top: 1vh;
-    padding: 8px 16px;
-    background: #4f46e5;
-    color: white;
-    border: none;
-    border-radius: 6px;
+.view-sub {
+    font-size: 0.75rem;
+    color: #5F5E5A;
+    margin-bottom: 24px;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+}
+
+.upload-zone {
+    position: relative;
+    border: 0.5px dashed #444441;
+    border-radius: 8px;
+    padding: 28px 20px;
+    text-align: center;
+    background: #222220;
     cursor: pointer;
-    margin-right: 12px;
-    transition: background 0.2s;
+    transition: border-color 0.15s, background 0.15s;
+    margin-bottom: 16px;
+    overflow: hidden;
 }
 
-input[type="file"]::file-selector-button:hover {
-  background: #4338ca;
+.upload-zone:hover {
+    border-color: #5F5E5A;
+    background: #272725;
+}
+
+.upload-zone.loaded {
+    border-style: solid;
+    border-color: #3B6D11;
+    background: #1a2416;
+}
+
+.upload-input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+
+.upload-icon {
+    display: block;
+    font-size: 24px;
+    color: #5F5E5A;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+.upload-icon.loaded-icon {
+    color: #3B6D11;
+}
+
+.upload-label {
+    font-size: 0.78rem;
+    color: #888780;
+    line-height: 1.7;
+}
+
+.upload-label-strong {
+    color: #e8e6df;
+    font-weight: 500;
+}
+
+.upload-hint {
+    font-size: 0.7rem;
+    color: #444441;
+}
+
+.upload-zone.loaded .upload-hint {
+    color: #639922;
+}
+
+.config-preview {
+    padding: 10px 14px;
+    background: #222220;
+    border: 0.5px solid #2c2c2a;
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+
+.config-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.72rem;
+    line-height: 1.8;
+}
+
+.config-key {
+    color: #5F5E5A;
+    letter-spacing: 0.04em;
+}
+
+.config-val {
+    color: #e8e6df;
+    font-weight: 500;
+}
+
+.connect-btn {
+    width: 100%;
+    margin-top: 8px;
+    justify-content: center;
+    display: block;
+    text-align: center;
 }

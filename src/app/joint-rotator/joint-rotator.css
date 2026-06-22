@@ -1,12 +1,97 @@
-.angles-container {
+.joint-card {
+    background: #222220;
+    border: 0.5px solid #2c2c2a;
+    border-radius: 8px;
+    padding: 14px 16px;
+    transition: border-color 0.15s;
+}
+
+.joint-card:hover {
+    border-color: #444441;
+}
+
+.joint-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.joint-name {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #888780;
+}
+
+.joint-type-badge {
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    padding: 2px 7px;
+    border-radius: 3px;
+    background: #1a1a18;
+    color: #5F5E5A;
+    border: 0.5px solid #2c2c2a;
+    text-transform: uppercase;
+}
+
+.joint-value-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.joint-angle-block {
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+    min-width: 58px;
+}
+
+.joint-angle-display {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #e8e6df;
+    letter-spacing: -0.02em;
+    line-height: 1;
+}
+
+.joint-angle-unit {
+    font-size: 0.85rem;
+    color: #5F5E5A;
+    font-weight: 400;
+}
+
+.joint-slider-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.joint-slider {
+    width: 100%;
+    height: 3px;
+    cursor: pointer;
+    accent-color: #e8e6df;
+    background: transparent;
+}
+
+.joint-range-labels {
     display: flex;
     justify-content: space-between;
+    font-size: 0.62rem;
+    color: #444441;
+    letter-spacing: 0.04em;
 }
 
-.component-container {
-    width: 40vw;
+.gripper-arc-wrap {
+    flex-shrink: 0;
 }
 
-input[type="range"] {
-    width: 100%;
+.arc-svg {
+    width: 40px;
+    height: 40px;
+    display: block;
 }

@@ -21,8 +21,8 @@ export class App implements AfterViewInit{
   bluetoothService = inject(BluetoothApiService);
 
   connectedToBluetoothService = computed(() => {
-    //return this.config() !== undefined;
-    return true;
+    return this.config().socketAddress !== "";
+    //return true;
   });
 
   ngAfterViewInit(): void {

@@ -1,14 +1,17 @@
-<div>
-    <div class="joint-container">
-        <app-joint-rotator part="jointOne" title="Joint #1" type="joint" (valueChange)="handleRotatorValueChange($event)"></app-joint-rotator>
+<div class="arm-manager">
+    <div class="section-header">
+        <h1 class="view-title">Joint control</h1>
+        <p class="view-sub">Drag sliders to set target rotation for each joint.</p>
     </div>
-    <div class="joint-container">
-        <app-joint-rotator part="jointTwo" title="Joint #2" type="joint" (valueChange)="handleRotatorValueChange($event)"></app-joint-rotator>
+
+    <div class="joints-grid">
+        <app-joint-rotator part="jointOne"   title="Joint 1" type="joint"   (valueChange)="handleRotatorValueChange($event)"></app-joint-rotator>
+        <app-joint-rotator part="jointTwo"   title="Joint 2" type="joint"   (valueChange)="handleRotatorValueChange($event)"></app-joint-rotator>
+        <app-joint-rotator part="jointThree" title="Joint 3" type="joint"   (valueChange)="handleRotatorValueChange($event)"></app-joint-rotator>
+        <app-joint-rotator part="gripper"    title="Gripper" type="gripper" [minRange]="gripperMinRange" [maxRange]="gripperMaxRange" (valueChange)="handleRotatorValueChange($event)"></app-joint-rotator>
     </div>
-    <div class="joint-container">
-        <app-joint-rotator part="jointThree" title="Joint #3" type="joint" (valueChange)="handleRotatorValueChange($event)"></app-joint-rotator>
-    </div>
-    <div class="joint-container">
-        <app-joint-rotator part="gripper" title="Gripper" [minRange]="gripperMinRange" [maxRange]="gripperMaxRange" type="gripper" (valueChange)="handleRotatorValueChange($event)"></app-joint-rotator>
+
+    <div class="bottom-bar">
+        <span class="tx-status" [class.sending]="isSending()">{{ txStatusLabel() }}</span>
     </div>
 </div>

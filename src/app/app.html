@@ -1,5 +1,11 @@
-@if(connectedToBluetoothService()) {
-    <app-arm-manager></app-arm-manager>
-} @else {
-    <app-connection-creator (configChange)="handleConfigChange($event)"></app-connection-creator>
-}
+<div class="app-header">
+    <div class="status-dot" [class.connected]="connectedToBluetoothService()"></div>
+    <span class="app-title">Arm Controller &mdash; {{ connectedToBluetoothService() ? 'Connected' : 'Not connected' }}</span>
+</div>
+<div class="app-content">
+    @if(connectedToBluetoothService()) {
+        <app-arm-manager></app-arm-manager>
+    } @else {
+        <app-connection-creator (configChange)="handleConfigChange($event)"></app-connection-creator>
+    }
+</div>

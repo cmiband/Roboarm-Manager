@@ -1,9 +1,35 @@
-<div class="component-container">
-    <div>{{title()}}</div>
-    <input type="range" [min]="minRange()" [max]="maxRange()" step="1" [value]="currentValue()" (input)="handleRangeChange($event)">
-    <div class="angles-container">
-        <span>{{minRange()}}</span>
-        <span>{{maxRange()}}</span>
+<div class="joint-card">
+    <div class="joint-top">
+        <span class="joint-name">{{ title() }}</span>
+        <span class="joint-type-badge">{{ type() }}</span>
     </div>
-    <span>Current value: {{currentValue()}}</span>
+    <div class="joint-value-row">
+        @if (type() === 'gripper') {
+            <div class="gripper-arc-wrap">
+                <svg class="arc-svg" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="22" cy="22" r="16" stroke="#2c2c2a" stroke-width="2.5" fill="none"/>
+                    <path [attr.d]="gripperArcPath()" stroke="#e8e6df" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                </svg>
+            </div>
+        }
+        <div class="joint-angle-block">
+            <span class="joint-angle-display">{{ currentValue() }}</span>
+            <span class="joint-angle-unit">&deg;</span>
+        </div>
+        <div class="joint-slider-wrap">
+            <input
+                type="range"
+                [min]="minRange()"
+                [max]="maxRange()"
+                step="1"
+                [value]="currentValue()"
+                (input)="handleRangeChange($event)"
+                class="joint-slider"
+            >
+            <div class="joint-range-labels">
+                <span>{{ minRange() }}&deg;</span>
+                <span>{{ maxRange() }}&deg;</span>
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,47 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
-    background-color: #f1f7da;
-    font-family: sans-serif;
+    background-color: #1a1a18;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    color: #e8e6df;
+    margin: 0;
+    min-height: 100vh;
 }
 
 .input-label {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
+    color: #888780;
 }
 
 .text-input {
     line-height: 2rem;
-    padding: 0.2rem;
-    border-radius: 5px;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
     min-width: 40vw;
+    background: #2c2c2a;
+    border: 0.5px solid #444441;
+    color: #e8e6df;
+    font-family: inherit;
+    font-size: 0.85rem;
+    outline: none;
+    transition: border-color 0.15s;
+}
+
+.text-input:focus {
+    border-color: #888780;
 }
 
 .required-asterisk {
-    color: red;
+    color: #E24B4A;
+    font-style: normal;
 }
 
 .help-text {
-    font-size: 0.8rem;
-    margin-top: 1vh;
+    font-size: 0.72rem;
+    margin-top: 6px;
     display: block;
-    color: gray;
+    color: #5F5E5A;
+    letter-spacing: 0.03em;
 }
 
 .validation-text {
-    font-size: 0.8rem;
-    margin-top: 1vh;
+    font-size: 0.72rem;
+    margin-top: 6px;
     display: block;
-    color: red;
+    color: #E24B4A;
+    letter-spacing: 0.03em;
 }
 
 .button-brand {
-    padding: 0.5rem;
+    padding: 0.5rem 1.2rem;
     line-height: 2rem;
-    font-size: 1.2rem;
-    font-weight: bold;
-    background-color: #ffc3ba;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: inherit;
+    letter-spacing: 0.06em;
+    background: transparent;
+    color: #e8e6df;
     cursor: pointer;
+    border: 0.5px solid #5F5E5A;
+    border-radius: 4px;
+    transition: background 0.15s, border-color 0.15s, transform 0.1s;
+    text-transform: uppercase;
+}
 
-    border: none;
-    border-radius: 5px;
+.button-brand:hover {
+    background: #2c2c2a;
+    border-color: #888780;
+}
+
+.button-brand:active {
+    transform: scale(0.98);
+}
+
+.button-brand:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
 }

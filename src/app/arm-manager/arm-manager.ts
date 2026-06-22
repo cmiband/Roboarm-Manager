@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, viewChildren, output } from '@angular/core';
+import { AfterViewInit, Component, viewChildren, output, signal, computed } from '@angular/core';
 import { JointRotator } from '../joint-rotator/joint-rotator';
 import { GRIPPER_MAX_RANGE, GRIPPER_MIN_RANGE, RotationChangeEvent } from '../constants';
 
@@ -15,9 +15,14 @@ export class ArmManager implements AfterViewInit {
   rotators = viewChildren(JointRotator);
   rotationChange = output<RotationChangeEvent>();
 
+  isSending = signal(false);
+  private txTimer: any;
+
+  txStatusLabel = computed(() => this.isSending() ? 'Sending\u2026' : 'Ready to send');
+
   ngAfterViewInit() {
     this.rotators().forEach((joint) => {
-      if(joint.type() == "gripper") {
+      if (joint.type() === 'gripper') {
         joint.currentValue.set(0);
       }
     });
@@ -25,5 +30,8 @@ export class ArmManager implements AfterViewInit {
 
   handleRotatorValueChange(value: RotationChangeEvent) {
     this.rotationChange.emit(value);
+    this.isSending.set(true);
+    clearTimeout(this.txTimer);
+    this.txTimer = setTimeout(() => this.isSending.set(false), 600);
   }
 }

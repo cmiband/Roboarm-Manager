@@ -1,7 +1,48 @@
 <div class="view-container">
-    <h1>Connect to local bluetooth service</h1>
-    <div class="input-container">
-        <label class="input-label" for="config-file"><abbr class="required-asterisk">*</abbr>Configuration file: </label>
-        <input (change)="handleFileChange($event)" id="config-file" class="config-upload-button" type="file" accept=".txt">
+    <h1 class="view-title">Load configuration</h1>
+    <p class="view-sub">Select a .txt config file to set the Bluetooth socket address.</p>
+
+    <div class="upload-zone" [class.loaded]="fileLoaded()">
+        <input
+            (change)="handleFileChange($event)"
+            id="config-file"
+            type="file"
+            accept=".txt"
+            class="upload-input"
+        >
+        @if (!fileLoaded()) {
+            <span class="upload-icon">&#8613;</span>
+            <div class="upload-label">
+                <span class="upload-label-strong">Choose file</span> or drag and drop<br>
+                <span class="upload-hint">Accepts .txt &mdash; key=value format</span>
+            </div>
+        } @else {
+            <span class="upload-icon loaded-icon">&#10003;</span>
+            <div class="upload-label">
+                <span class="upload-label-strong">{{ fileName() }}</span><br>
+                <span class="upload-hint">{{ parsedAddress() }}</span>
+            </div>
+        }
     </div>
+
+    @if (fileLoaded()) {
+        <div class="config-preview">
+            <div class="config-row">
+                <span class="config-key">socketAddress</span>
+                <span class="config-val">{{ parsedAddress() }}</span>
+            </div>
+        </div>
+    }
+
+    @if (showValidationError()) {
+        <span class="validation-text">&#9656; Could not parse socketAddress from file.</span>
+    }
+
+    <button
+        class="button-brand connect-btn"
+        [disabled]="!fileLoaded()"
+        (click)="emitConfig()"
+    >
+        Connect to Bluetooth service &rarr;
+    </button>
 </div>
