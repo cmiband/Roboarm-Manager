@@ -5,6 +5,7 @@
     </div>
 
     <div class="joints-grid">
+        <app-joint-rotator part="base"   title="Base" type="joint"   (valueChange)="handleRotatorValueChange($event)"></app-joint-rotator>
         <app-joint-rotator part="jointOne"   title="Joint 1" type="joint"   (valueChange)="handleRotatorValueChange($event)"></app-joint-rotator>
         <app-joint-rotator part="jointTwo"   title="Joint 2" type="joint"   (valueChange)="handleRotatorValueChange($event)"></app-joint-rotator>
         <app-joint-rotator part="jointThree" title="Joint 3" type="joint"   (valueChange)="handleRotatorValueChange($event)"></app-joint-rotator>

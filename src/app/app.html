@@ -4,8 +4,12 @@
 </div>
 <div class="app-content">
     @if(connectedToBluetoothService()) {
-        <app-arm-manager></app-arm-manager>
+        <app-arm-manager (rotationChange)="handleRotationChange($event)"></app-arm-manager>
     } @else {
         <app-connection-creator (configChange)="handleConfigChange($event)"></app-connection-creator>
+    }
+
+    @if(showErrorMessage()) {
+        <p>{{errorMessage()}}</p>
     }
 </div>

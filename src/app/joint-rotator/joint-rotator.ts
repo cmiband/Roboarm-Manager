@@ -16,6 +16,10 @@ export class JointRotator implements AfterViewInit {
   minRange = input(0);
   maxRange = input(180);
 
+  unit = computed(() => {
+    return this.type() === 'gripper' ? '%' : '\u00B0';
+  });
+
   gripperArcPath = computed(() => {
     if (this.type() !== 'gripper') return '';
     const val = this.currentValue();
@@ -23,6 +27,15 @@ export class JointRotator implements AfterViewInit {
     if (range === 0 || val === this.minRange()) return '';
     const pct = (val - this.minRange()) / range;
     const r = 16, cx = 22, cy = 22;
+
+    if (pct >= 0.999) {
+      const top = this.polarToCartesian(cx, cy, r, -90);
+      const bottom = this.polarToCartesian(cx, cy, r, 90);
+      return `M ${top.x} ${top.y} 
+              A ${r} ${r} 0 1 1 ${bottom.x} ${bottom.y} 
+              A ${r} ${r} 0 1 1 ${top.x} ${top.y}`;
+    }
+
     const startAngle = -90;
     const endAngle = startAngle + pct * 360;
     const start = this.polarToCartesian(cx, cy, r, startAngle);

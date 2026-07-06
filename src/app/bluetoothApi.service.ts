@@ -31,6 +31,15 @@ export class BluetoothApiService {
   }
 
   async sendDataToWebsocket(value: number, part: string) {
+    if(!this.webSocket) {
+      return;
+    }
 
+    console.log('send', value, part);
+    this.webSocket.send(this.constructMessage(value,part));
+  }
+
+  constructMessage(value: number, part: string) {
+    return `${value.toString()}|${part}`;
   }
 }

@@ -38,8 +38,8 @@ export class ConnectionCreator {
     this.fileName.set(file.name);
     this.pendingConfig = configuration;
 
-    if (configuration.socketAddress) {
-      this.parsedAddress.set(configuration.socketAddress.trim());
+    if (configuration.serverAddress && configuration.socketEndpoint && configuration.port) {
+      this.parsedAddress.set(configuration.serverAddress+':'+configuration.port+'/'+configuration.socketEndpoint);
       this.fileLoaded.set(true);
       this.showValidationError.set(false);
     } else {
@@ -56,7 +56,7 @@ export class ConnectionCreator {
 
   parseFileIntoObject(fileContent: string): ConfigurationObject {
     const lines = fileContent.split('\n');
-    const configObject: ConfigurationObject = { socketAddress: '' };
+    const configObject: ConfigurationObject = { serverAddress: '', socketEndpoint: '', port: '' };
     lines.forEach((line) => {
       const [key, value] = line.split('=');
       if (key && value !== undefined) {

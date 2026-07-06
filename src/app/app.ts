@@ -6,7 +6,9 @@ import { ConfigurationObject, RotationChangeEvent } from './constants';
 import { BluetoothApiService } from './bluetoothApi.service';
 
 const DEFAULT_CONFIG : ConfigurationObject = {
-  socketAddress: ""
+  serverAddress: '',
+  socketEndpoint: '',
+  port: ''
 };
 
 @Component({
@@ -15,32 +17,33 @@ const DEFAULT_CONFIG : ConfigurationObject = {
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App implements AfterViewInit{
-  bluetoothServerAddress = '';
+export class App {
   config = signal<ConfigurationObject>(DEFAULT_CONFIG);
   bluetoothService = inject(BluetoothApiService);
 
-  connectedToBluetoothService = computed(() => {
-    return this.config().socketAddress !== "";
-    //return true;
+  connectedToBluetoothService = signal(false);
+  errorMessage = signal("");
+  showErrorMessage = computed(() => {
+    return this.errorMessage() !== '';
   });
-
-  ngAfterViewInit(): void {
-
-  }
+  socketAddress = computed(() => {
+    return this.config().serverAddress+':'+this.config().port+'/'+this.config().socketEndpoint;
+  });
 
   async handleConfigChange(config: ConfigurationObject) {
     this.config.set(config);
 
-    const isConnectionValid = await this.bluetoothService.testConnection(this.config().socketAddress);
+    const isConnectionValid = await this.bluetoothService.testConnection(this.socketAddress());
+    if(isConnectionValid) {
+      this.connectedToBluetoothService.set(true);
+    } else {
+      this.errorMessage.set('Error occured during connection phase! Verify the configuration file.');
+    }
   }
 
   async handleRotationChange(event: RotationChangeEvent) {
-
-  }
-
-  connectToBluetoothService() {
-    
+    console.log('data send');
+    this.bluetoothService.sendDataToWebsocket(event.value, event.part);
   }
 }
 

@@ -1,5 +1,7 @@
 export interface ConfigurationObject {
-    socketAddress: string
+    serverAddress: string,
+    socketEndpoint: string,
+    port: string
 }
 
 export interface RotationChangeEvent {
@@ -8,4 +10,4 @@ export interface RotationChangeEvent {
 }
 
 export const GRIPPER_MIN_RANGE = 0;
-export const GRIPPER_MAX_RANGE = 45;
+export const GRIPPER_MAX_RANGE = 100;
