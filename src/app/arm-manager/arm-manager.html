@@ -5,11 +5,12 @@
     </div>
 
     <div class="joints-grid">
-        <app-joint-rotator part="base"   title="Base" type="joint"   (valueChange)="handleRotatorValueChange($event)"></app-joint-rotator>
-        <app-joint-rotator part="jointOne"   title="Joint 1" type="joint"   (valueChange)="handleRotatorValueChange($event)"></app-joint-rotator>
-        <app-joint-rotator part="jointTwo"   title="Joint 2" type="joint"   (valueChange)="handleRotatorValueChange($event)"></app-joint-rotator>
-        <app-joint-rotator part="jointThree" title="Joint 3" type="joint"   (valueChange)="handleRotatorValueChange($event)"></app-joint-rotator>
-        <app-joint-rotator part="gripper"    title="Gripper" type="gripper" [minRange]="gripperMinRange" [maxRange]="gripperMaxRange" (valueChange)="handleRotatorValueChange($event)"></app-joint-rotator>
+        <app-joint-rotator part="0" title="Base" type="joint"   (valueChange)="handleRotatorValueChange($event)"></app-joint-rotator>
+        <app-joint-rotator part="1" title="Joint 1" type="joint"   (valueChange)="handleRotatorValueChange($event)"></app-joint-rotator>
+        <app-joint-rotator part="2" title="Joint 2" type="joint"   (valueChange)="handleRotatorValueChange($event)"></app-joint-rotator>
+        <app-joint-rotator part="3" title="Joint 3" type="joint"   (valueChange)="handleRotatorValueChange($event)"></app-joint-rotator>
+        <app-joint-rotator part="4" title="Joint 4" type="joint"   (valueChange)="handleRotatorValueChange($event)"></app-joint-rotator>
+        <app-joint-rotator part="5" title="Gripper" type="gripper" [minRange]="gripperMinRange" [maxRange]="gripperMaxRange" (valueChange)="handleRotatorValueChange($event)"></app-joint-rotator>
     </div>
 
     <div class="bottom-bar">

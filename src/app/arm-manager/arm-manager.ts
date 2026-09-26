@@ -32,6 +32,6 @@ export class ArmManager implements AfterViewInit {
     this.rotationChange.emit(value);
     this.isSending.set(true);
     clearTimeout(this.txTimer);
-    this.txTimer = setTimeout(() => this.isSending.set(false), 600);
+    this.txTimer = setTimeout(() => this.isSending.set(false), 50);
   }
 }

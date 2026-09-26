@@ -40,6 +40,8 @@ export class BluetoothApiService {
   }
 
   constructMessage(value: number, part: string) {
-    return `${value.toString()}|${part}`;
+    const valuePadded = value.toString().padStart(3,'0');
+
+    return valuePadded+part;
   }
 }
